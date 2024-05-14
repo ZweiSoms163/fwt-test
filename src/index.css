@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Cormorant SC";
+  src: url("./fonts/Cormorant_SC/CormorantSC-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/static/Inter-Regular.ttf") format("truetype");
+}
+:root {
+  font-family: "Cormorant SC", "Inter", sans-serif;
+
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #dedede;
+  background-color: #121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
