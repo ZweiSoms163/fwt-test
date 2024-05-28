@@ -1,0 +1,124 @@
+.wrapper {
+  position: fixed;
+  right: -492px;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: var(--background-color);
+  width: 492px;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.2s ease-in-out;
+  &.slideInFromRight {
+    right: 0;
+  }
+  @media screen and (max-width: 856px) {
+    width: 372px;
+  }
+  @media screen and (max-width: 395px) {
+    width: 280px;
+    height: 568px;
+  }
+}
+
+.closeIcon_box {
+  margin: 60px 102px 0px 0px;
+  display: flex;
+  justify-content: flex-end;
+  img {
+    cursor: pointer;
+  }
+  @media screen and (max-width: 856px) {
+    margin: 26px 26px 0px 0px;
+  }
+  @media screen and (max-width: 395px) {
+    margin: 22px 22px 0px 0px;
+  }
+}
+.container {
+  max-width: 320px;
+  margin-top: 102px;
+  margin-left: 40px;
+  box-sizing: border-box;
+  @media screen and (max-width: 856px) {
+    margin-right: 20px;
+  }
+  @media screen and (max-width: 395px) {
+    margin-left: 20px;
+  }
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  width: 500;
+  font-size: 16px;
+  line-height: 19.38px;
+  color: var(--text-color);
+  cursor: pointer;
+  @media screen and (max-width: 395px) {
+    font-size: 12px;
+    line-height: 14.53px;
+  }
+}
+.button_box {
+  margin-top: auto;
+  padding: 0 40px 196px 40px;
+  max-width: 320px;
+
+  @media screen and (max-width: 395px) {
+    padding: 0 20px 89px 20px;
+  }
+}
+.button_container {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  line-height: 14.52px;
+  font-size: 12px;
+  button {
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: var(--button-border-color);
+    border-bottom: 1px solid var(--button-border-color);
+    &:hover,
+    &:active {
+      color: var(--button-hover-color);
+      border-bottom: 1px solid var(--button-hover-color);
+    }
+  }
+}
+
+.slideInFromRight {
+  animation-name: slideInFromRight;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+.slideOutToRight {
+  animation-name: slideOutToRight;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideOutToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}

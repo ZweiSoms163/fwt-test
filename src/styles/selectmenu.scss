@@ -1,0 +1,97 @@
+.custom-select {
+  &__control {
+    background-color: var(--input-background-color) !important;
+    border-style: none !important;
+    min-width: 320px !important;
+    min-height: 36px !important;
+    box-sizing: border-box;
+    border: var(--selectMenu-border) !important;
+    @media screen and (max-width: 395px) {
+      min-width: 240px !important;
+      min-height: 33px !important;
+    }
+    &--is-focused {
+      box-shadow: none !important;
+    }
+    &--menu-is-open {
+      box-shadow: var(--selectMenu-box-shadow) !important;
+    }
+  }
+
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__placeholder {
+    color: var(--input-placeholder-color) !important ;
+    @media screen and (max-width: 395px) {
+      font-size: 12px !important;
+      line-height: 16.8px !important;
+    }
+  }
+
+  &__menu {
+    background-color: var(--option-bg-color) !important;
+    &-list {
+      border-radius: 4px !important;
+    }
+  }
+
+  &__single-value {
+    color: var(--input-text-color) !important;
+    font-family: 'Inter' !important;
+    font-size: 14px !important;
+    line-height: 19.6px !important;
+    @media screen and (max-width: 395px) {
+      font-size: 12px !important;
+      line-height: 16.8px !important;
+    }
+  }
+
+  &__option {
+    background-color: var(--input-bg-color) !important;
+    font-family: 'Inter' !important;
+    font-size: 14px !important;
+    line-height: 19.6px !important;
+    color: var(--input-text-color) !important;
+    &--is-focused {
+      background-color: var(--selectMenu-background-select-color) !important;
+    }
+  }
+  &__menu-list::-webkit-scrollbar {
+    width: 4px !important;
+  }
+  &__menu-list::-webkit-scrollbar-track {
+    background: inherit !important;
+  }
+  &__menu-list::-webkit-scrollbar-thumb {
+    background: var(--selectMenu-background-scrollbar) !important;
+    min-height: 10px !important;
+  }
+  &__menu-list {
+    max-height: 220px !important;
+    height: 100% !important;
+  }
+  &__input {
+    color: var(--input-text-color) !important;
+    font-family: 'Inter' !important;
+    font-size: 14px !important;
+    line-height: 19.6px !important;
+    width: 300 !important;
+    @media screen and (max-width: 395px) {
+      font-size: 12px !important;
+      line-height: 16.8px !important;
+    }
+  }
+  &__menu-notice--no-options {
+    font-family: 'Inter' !important;
+    font-size: 14px !important;
+    line-height: 19.6px !important;
+    color: #9c9c9c !important;
+    width: 300 !important;
+    @media screen and (max-width: 395px) {
+      font-size: 12px !important;
+      line-height: 16.8px !important;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.header .header_icon {
+  cursor: pointer;
+  background-color: var(--input-filter-background-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .header_icon:hover {
+  background-color: var(--backgorund-color-hover-menu);
+}
+
+@media screen and (max-width: 856px) {
+  .logo_icon {
+    width: 73px;
+    height: 16px;
+  }
+}

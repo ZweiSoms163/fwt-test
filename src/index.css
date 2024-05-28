@@ -1,22 +1,79 @@
 @font-face {
-  font-family: "Cormorant SC";
-  src: url("./fonts/Cormorant_SC/CormorantSC-Regular.ttf") format("truetype");
+  font-family: 'Cormorant SC';
+  src: url('./fonts/Cormorant_SC/CormorantSC-Regular.ttf') format('truetype');
 }
+
 @font-face {
-  font-family: "Inter";
-  src: url("./fonts/Inter/static/Inter-Regular.ttf") format("truetype");
+  font-family: 'Inter';
+  src: url('./fonts/Inter/static/Inter-Regular.ttf') format('truetype');
 }
+
 :root {
-  font-family: "Cormorant SC", "Inter", sans-serif;
-
+  font-family: 'Cormorant SC', 'Inter', sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-
-  color: #dedede;
-  background-color: #121212;
-
+  font-weight: 300;
+  font-size: 16px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  unicode-bidi: isolate;
+  overflow-y: auto;
+}
+
+body.dark-theme {
+  --background-color: #121212;
+  --input-background-color: #1a1818;
+  --input-filter-background-color: #1a1818;
+  --text-color: #dedede;
+  --input-bg-color: #1a1818;
+  --input-text-color: #dedede;
+  --button-border-color: #9c9c9c;
+  --button-hover-color: #dedede;
+  --separator-color: #575757;
+  --option-bg-color: #1a1818;
+  --option-hover-bg-color: #cdcdcd0d;
+  --input-placeholder-color: #575757;
+  --selectMenu-border: none;
+  --selectMenu-box-shadow: 0 0 0 1px #dedede;
+  --selectMenu-background-select-color: #232121;
+  --selectMenu-background-scrollbar: #dedede;
+  --selectMenu-border-color: 1px solid #dedede;
+  --strip-border-color: 2px solid #ab8956;
+  --gallery-year-color: #ab8956;
+  --pagination-activ-background-color: #1a1818;
+  --pagination-hover-strip: 1px solid #575757;
+  --backgorund-color-hover-menu: #1b1b1b;
+}
+
+body.light-theme {
+  --background-color: #ffffff;
+  --input-background-color: inherit;
+  --input-filter-background-color: #fcfcfc;
+  --input-border-color: 1px solid #dedede;
+  --text-color: #121212;
+  --input-bg-color: #ffff;
+  --input-text-color: #575757;
+  --button-border-color: #9c9c9c;
+  --button-hover-color: #575757;
+  --separator-color: #cccccc;
+  --option-bg-color: #ffffff;
+  --option-hover-bg-color: #e0e0e0;
+  --input-placeholder-color: #9c9c9c;
+  --selectMenu-border: 1px solid #dedede;
+  --selectMenu-box-shadow: 0 0 0 1px #575757;
+  --selectMenu-background-select-color: #f3f3f3;
+  --selectMenu-background-scrollbar: #9c9c9c;
+  --selectMenu-border-color: 1px solid #575757;
+  --strip-border-color: 2px solid #9b4b4b;
+  --gallery-year-color: #9b4b4b;
+  --pagination-activ-background-color: #1212120d;
+  --pagination-hover-strip: 1px solid #9c9c9c;
+  --backgorund-color-hover-menu: #eaeaea;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
 }

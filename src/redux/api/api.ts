@@ -1,34 +1,15 @@
-// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// import { Paintings, Authors, Locations } from '../../types';
-
-// export const Api = createApi({
-//   reducerPath: 'api',
-//   baseQuery: fetchBaseQuery({ baseUrl: 'https://test-front.framework.team' }),
-//   endpoints: (builder) => ({
-//     getPaintings: builder.query<Paintings[], string>({
-//       query: (query) => ({ url: `/paintings?q=${query}`, method: 'GET' }),
-//     }),
-//     getAuthors: builder.query<Authors[], void>({
-//       query: () => '/authors',
-//     }),
-//     getLocations: builder.query<Locations[], void>({
-//       query: () => '/locations',
-//     }),
-//   }),
-// });
-
-// export const { useGetPaintingsQuery, useGetAuthorsQuery, useGetLocationsQuery } = Api;
-
-// выше код принимает только помимо массива картин введеный текст фильтрации по имени 
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Paintings, Authors, Locations } from '../../types';
 
 export const Api = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://test-front.framework.team' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://test-front.framework.team' }), 
   endpoints: (builder) => ({
-    getPaintings: builder.query<
+    getPaintings: builder.query<Paintings[], void>({
+      query: () => '/paintings',
+    }),
+    getFiltersPaintings: builder.query<
       Paintings[],
       {
         q?: string;
@@ -40,15 +21,7 @@ export const Api = createApi({
         _limit?: number;
       }
     >({
-      query: ({
-        q = '',
-        authorId,
-        locationId,
-        created_gte,
-        created_lte,
-        _page = 1,
-        _limit = 6,
-      }) => {
+      query: ({ q, authorId, locationId, created_gte, created_lte, _page = 1, _limit = 6 }) => {
         return {
           url: `/paintings`,
           method: 'GET',
@@ -73,5 +46,9 @@ export const Api = createApi({
   }),
 });
 
-export const { useGetPaintingsQuery, useGetAuthorsQuery, useGetLocationsQuery } = Api;
-// сразу все параметры для фильтрации на сервере
+export const {
+  useGetPaintingsQuery,
+  useGetFiltersPaintingsQuery,
+  useGetAuthorsQuery,
+  useGetLocationsQuery,
+} = Api;

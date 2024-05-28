@@ -1,12 +1,12 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// import { Paintings, Authors, Locations } from '../../types';
+// import { createSlice } from "@reduxjs/toolkit";
+// import { Paintings, Authors, Locations } from "../../types";
 
 // const initialState = {
 //   paintings: [],
 // };
 
 // const paintingsSlice = createSlice({
-//   name: 'paintings',
+//   name: "paintings",
 //   initialState,
 //   reducers: {
 //     setPaintings(state, action) {
@@ -15,12 +15,14 @@
 //     mergePaintingsData(state, action) {
 //       const { paintings, authors, locations } = action.payload;
 //       state.paintings = paintings.map((painting: Paintings) => {
-//         const author = authors.find((author: Authors) => author.id === painting.authorId);
+//         const author = authors.find(
+//           (author: Authors) => author.id === painting.authorId,
+//         );
 //         const location = locations.find(
 //           (location: Locations) => location.id === painting.locationId,
 //         );
-//         const authorName = author ? author.name : 'Unknown';
-//         const locationName = location ? location.location : 'Unknown';
+//         const authorName = author ? author.name : "Unknown";
+//         const locationName = location ? location.location : "Unknown";
 //         const updatedPainting = {
 //           ...painting,
 //           authorName,
@@ -28,7 +30,6 @@
 //         };
 //         return updatedPainting;
 //       });
-//       console.log('Sorted paintings:', state.paintings); // Вывод отсортированного массива
 //     },
 //   },
 // });
@@ -37,31 +38,36 @@
 
 // export default paintingsSlice.reducer;
 
-import { createSlice } from "@reduxjs/toolkit";
-import { Paintings, Authors, Locations } from "../../types";
+// сверху без типизации 
 
-const initialState = {
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Paintings, Authors, Locations } from '../../types';
+
+interface PaintingsState {
+  paintings: Paintings[];
+}
+
+const initialState: PaintingsState = {
   paintings: [],
 };
 
 const paintingsSlice = createSlice({
-  name: "paintings",
+  name: 'paintings',
   initialState,
   reducers: {
-    setPaintings(state, action) {
+    setPaintings(state, action: PayloadAction<Paintings[]>) {
       state.paintings = action.payload;
     },
-    mergePaintingsData(state, action) {
+    mergePaintingsData(
+      state,
+      action: PayloadAction<{ paintings: Paintings[]; authors: Authors[]; locations: Locations[] }>,
+    ) {
       const { paintings, authors, locations } = action.payload;
-      state.paintings = paintings.map((painting: Paintings) => {
-        const author = authors.find(
-          (author: Authors) => author.id === painting.authorId,
-        );
-        const location = locations.find(
-          (location: Locations) => location.id === painting.locationId,
-        );
-        const authorName = author ? author.name : "Unknown";
-        const locationName = location ? location.location : "Unknown";
+      state.paintings = paintings.map((painting) => {
+        const author = authors.find((author) => author.id === painting.authorId);
+        const location = locations.find((location) => location.id === painting.locationId);
+        const authorName = author ? author.name : 'Unknown';
+        const locationName = location ? location.location : 'Unknown';
         const updatedPainting = {
           ...painting,
           authorName,
@@ -69,7 +75,6 @@ const paintingsSlice = createSlice({
         };
         return updatedPainting;
       });
-      console.log("Sorted paintings:", state.paintings);
     },
   },
 });
